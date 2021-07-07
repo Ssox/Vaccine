@@ -25,7 +25,7 @@ public class InsercaoDB {
     @Autowired
     PeriodRepository periodRepository;
 
-    @PostConstruct
+//    @PostConstruct
     public void saveVaccine() {
 
 //        Disease disease = new Disease();
@@ -47,18 +47,18 @@ public class InsercaoDB {
 //        System.out.println(teste.getName());
 
 
-        Vaccine vaccine = new Vaccine();
-        vaccine.setName("BCG");
-        vaccine.setDescription("A vacina BCG ajuda a proteger contras formas graves de tuberculose.");
-        List<Disease> diseaseList = diseaseRepository.findAll();
-        for (Disease disease: diseaseList) {
-            if (disease.getName().equals("Tuberculose")) {
-                System.out.println(disease.getName());
-                disease.setVaccine(vaccine);
-                vaccine.setDiseases(diseaseList);
-                Vaccine teste = vaccineRepository.save(vaccine);
-            }
-        }
+//        Vaccine vaccine = new Vaccine();
+//        vaccine.setName("BCG");
+//        vaccine.setDescription("A vacina BCG ajuda a proteger contras formas graves de tuberculose.");
+//        List<Disease> diseaseList = diseaseRepository.findAll();
+//        for (Disease disease: diseaseList) {
+//            if (disease.getName().equals("Tuberculose")) {
+//                System.out.println(disease.getName());
+//                disease.setVaccine(vaccine);
+//                vaccine.setDiseases(diseaseList);
+//                Vaccine teste = vaccineRepository.save(vaccine);
+//            }
+//        }
 
 
 
