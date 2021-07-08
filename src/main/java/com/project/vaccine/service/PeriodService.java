@@ -1,12 +1,25 @@
 package com.project.vaccine.service;
 
 import com.project.vaccine.model.Period;
+import com.project.vaccine.repository.PeriodRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public interface PeriodService {
+public class PeriodService {
 
-    List<Period> findAll();
-    Period findById(long id);
-    Period save(Period period);
+    @Autowired
+    private PeriodRepository periodRepository;
+
+    public List<Period> findAll() {
+        return periodRepository.findAll();
+    }
+
+    public Period findById(long id) {
+        return periodRepository.findById(id).get();
+    }
+
+    public Period save(Period period) {
+        return periodRepository.save(period);
+    }
 }

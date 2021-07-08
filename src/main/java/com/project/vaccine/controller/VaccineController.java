@@ -19,7 +19,7 @@ public class VaccineController {
     @GetMapping(value = "/vaccines")
     public ModelAndView getVaccines() {
         ModelAndView mv = new ModelAndView("vaccines");
-        List<Vaccine> vaccines = vaccineService.buscar();
+        List<Vaccine> vaccines = vaccineService.findAll();
         mv.addObject("vaccines", vaccines);
         return mv;
     }
