@@ -5,8 +5,7 @@ import com.project.vaccine.model.Vaccine;
 import com.project.vaccine.service.VaccineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -15,12 +14,12 @@ import java.util.List;
 public class VaccineController {
 
     @Autowired
-    VaccineService vaccineService;
+    private VaccineService vaccineService;
 
-    @RequestMapping(value = "/vaccines", method = RequestMethod.GET)
+    @GetMapping(value = "/vaccines")
     public ModelAndView getVaccines() {
         ModelAndView mv = new ModelAndView("vaccines");
-        List<Vaccine> vaccines = vaccineService.findAll();
+        List<Vaccine> vaccines = vaccineService.buscar();
         mv.addObject("vaccines", vaccines);
         return mv;
     }

@@ -9,14 +9,13 @@ import java.util.List;
 public class Vaccine {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
     private String name;
 
     @NotBlank
-    @Lob
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vaccine")

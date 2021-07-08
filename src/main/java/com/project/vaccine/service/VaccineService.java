@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface VaccineService {
 
-    List<Vaccine> findAll();
+    List<Vaccine> buscar();
     Vaccine findById(long id);
     Vaccine save(Vaccine vaccine);
 }

@@ -7,22 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class PeriodImplements implements PeriodService {
+public class PeriodImplements {
 
     @Autowired
-    PeriodRepository periodRepository;
+    private PeriodRepository periodRepository;
 
-    @Override
     public List<Period> findAll() {
         return periodRepository.findAll();
     }
 
-    @Override
     public Period findById(long id) {
         return periodRepository.findById(id).get();
     }
 
-    @Override
     public Period save(Period period) {
         return periodRepository.save(period);
     }

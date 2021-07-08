@@ -10,22 +10,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VaccineImplements implements VaccineService {
+public class VaccineImplements {
 
     @Autowired
-    VaccineRepository vaccineRepository;
+    private VaccineRepository vaccineRepository;
 
-    @Override
-    public List<Vaccine> findAll() {
+
+    public List<Vaccine> buscar() {
         return vaccineRepository.findAll();
     }
 
-    @Override
     public Vaccine findById(long id) {
         return vaccineRepository.findById(id).get();
     }
 
-    @Override
     public Vaccine save(Vaccine vaccine) {
         return vaccineRepository.save(vaccine);
     }

@@ -9,22 +9,18 @@ import javax.validation.constraints.NotBlank;
 public class Disease {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
     private String name;
 
-    @Lob
     private String description;
 
-    @Lob
     private String transmission;
 
-    @Lob
     private String risk;
 
-    @Lob
     private String symptoms;
 
     @ManyToOne
