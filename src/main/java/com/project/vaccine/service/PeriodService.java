@@ -3,9 +3,11 @@ package com.project.vaccine.service;
 import com.project.vaccine.model.Period;
 import com.project.vaccine.repository.PeriodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PeriodService {
 
     @Autowired

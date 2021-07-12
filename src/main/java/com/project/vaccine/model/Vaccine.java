@@ -1,7 +1,11 @@
 package com.project.vaccine.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.project.vaccine.controller.VaccineController;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,13 +22,14 @@ public class Vaccine {
     @NotBlank
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vaccine")
-    private List<Disease> diseases;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "vaccine")
+    List<Disease> diseases = new ArrayList<Disease>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "vaccine_period",
-            joinColumns = @JoinColumn(name = "vaccine_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "period_id", referencedColumnName = "id"))
+            joinColumns = {@JoinColumn(name = "vaccine_id")},
+            inverseJoinColumns = {@JoinColumn(name = "period_id")})
     private List<Period> periods;
 
     public Long getId() {
@@ -51,19 +56,19 @@ public class Vaccine {
         this.description = description;
     }
 
-    public List<Disease> getDiseases() {
-        return diseases;
-    }
-
-    public void setDiseases(List<Disease> diseases) {
-        this.diseases = diseases;
-    }
-
     public List<Period> getPeriods() {
         return periods;
     }
 
     public void setPeriods(List<Period> periods) {
         this.periods = periods;
+    }
+
+    public List<Disease> getDiseases() {
+        return diseases;
+    }
+
+    public void setDiseases(List<Disease> diseases) {
+        this.diseases = diseases;
     }
 }

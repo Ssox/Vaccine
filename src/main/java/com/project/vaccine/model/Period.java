@@ -16,10 +16,9 @@ public class Period {
     @NotBlank
     private String period;
 
-    @NotBlank
     private int months;
 
-    @ManyToMany(mappedBy = "periods")
+    @ManyToMany(mappedBy = "periods", cascade = CascadeType.ALL)
     private List<Vaccine> vaccines;
 
     public Long getId() {
