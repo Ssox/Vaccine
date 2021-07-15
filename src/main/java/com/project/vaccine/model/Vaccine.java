@@ -22,11 +22,10 @@ public class Vaccine {
     @NotBlank
     private String description;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "vaccine")
     List<Disease> diseases = new ArrayList<Disease>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
     @JoinTable(name = "vaccine_period",
             joinColumns = {@JoinColumn(name = "vaccine_id")},
             inverseJoinColumns = {@JoinColumn(name = "period_id")})

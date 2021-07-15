@@ -27,26 +27,26 @@ public class InsercaoDB {
     @Autowired
     private PeriodRepository periodRepository;
 
-//    @PostConstruct
+    @PostConstruct
     public void saveVaccine() {
 
-        Disease disease = new Disease();
-        disease.setName("Tuberculose");
-        disease.setDescription("A tuberculose é uma infecção causada pela bactéria Mycobacterium tuberculosis.");
-        disease.setTransmission("A bactéria causadora da tuberculose pode ser transmitida por gotículas para");
-        disease.setRisk("Em crianças, a tuberculose ocorre com mais frequência nas menores de 5 anos. Bebês e");
-        disease.setSymptoms("Aproximadamente um terço da população mundial carrega a bactéria, mas não apresenta");
-        List<Vaccine> vaccineList = vaccineRepository.findAll();
-        Vaccine testeVaccine = new Vaccine();
-        for (Vaccine vaccine: vaccineList) {
-            if (vaccine.getName().equals("BCG")) {
-                System.out.println(vaccine.getName());
-                testeVaccine = vaccine;
-            }
-        }
-        disease.setVaccine(testeVaccine);
-        Disease teste = diseaseRepository.save(disease);
-        System.out.println(teste.getName());
+//        Disease disease = new Disease();
+//        disease.setName("Tuberculose");
+//        disease.setDescription("A tuberculose é uma infecção causada pela bactéria Mycobacterium tuberculosis.");
+//        disease.setTransmission("A bactéria causadora da tuberculose pode ser transmitida por gotículas para");
+//        disease.setRisk("Em crianças, a tuberculose ocorre com mais frequência nas menores de 5 anos. Bebês e");
+//        disease.setSymptoms("Aproximadamente um terço da população mundial carrega a bactéria, mas não apresenta");
+//        List<Vaccine> vaccineList = vaccineRepository.findAll();
+//        Vaccine testeVaccine = new Vaccine();
+//        for (Vaccine vaccine: vaccineList) {
+//            if (vaccine.getName().equals("BCG")) {
+//                System.out.println(vaccine.getName());
+//                testeVaccine = vaccine;
+//            }
+//        }
+//        disease.setVaccine(testeVaccine);
+//        Disease teste = diseaseRepository.save(disease);
+//        System.out.println(teste.getName());
 
 
 //        Vaccine vaccine = new Vaccine();
@@ -67,10 +67,41 @@ public class InsercaoDB {
 
 
 
-//        Period period = new Period();
-//        period.setPeriod("Ao nascer");
-//        period.setMonths(0);
-//        periodRepository.save(period);
+        Period period = new Period();
+        period.setId(1L);
+        period.setPeriod("Ao Nascer");
+        period.setMonths(0);
+        periodRepository.save(period);
+
+        Period period2 = new Period();
+        period2.setId(2L);
+        period2.setPeriod("2 Meses");
+        period2.setMonths(2);
+        periodRepository.save(period2);
+
+        Period period3 = new Period();
+        period3.setId(3L);
+        period3.setPeriod("3 Meses");
+        period3.setMonths(3);
+        periodRepository.save(period3);
+
+        Period period4 = new Period();
+        period4.setId(4L);
+        period4.setPeriod("4 Meses");
+        period4.setMonths(4);
+        periodRepository.save(period4);
+
+        Period period5 = new Period();
+        period5.setId(5L);
+        period5.setPeriod("5 Meses");
+        period5.setMonths(5);
+        periodRepository.save(period5);
+
+        Period period6 = new Period();
+        period6.setId(6L);
+        period6.setPeriod("6 Meses");
+        period6.setMonths(6);
+        periodRepository.save(period6);
 
     }
 }

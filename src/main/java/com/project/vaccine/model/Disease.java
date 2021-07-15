@@ -2,6 +2,7 @@ package com.project.vaccine.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -25,8 +26,8 @@ public class Disease {
 
     private String symptoms;
 
-    @JsonBackReference
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne()
     @JoinColumn(name="vaccine_id")
     private Vaccine vaccine;
 

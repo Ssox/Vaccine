@@ -1,6 +1,9 @@
 package com.project.vaccine.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -18,7 +21,8 @@ public class Period {
 
     private int months;
 
-    @ManyToMany(mappedBy = "periods", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToMany(mappedBy = "periods")
     private List<Vaccine> vaccines;
 
     public Long getId() {
